@@ -1,30 +1,32 @@
-name: Update README
+name: Update GitHub Profile README
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every hour
+    # Runs every 6 hours — you can adjust as you wish
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
-  build:
+  update-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # ensures repo write access
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
 
-      - name: Run auto-update script
-        run: |
-          python your_script.py
+      - name: Generate README Stats
+        uses: anuraghazra/github-readme-stats@latest
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Commit and Push Changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: GitHub Action
-          author_email: actions@github.com
+          add: '.'
           message: "Auto-update: refresh profile README"
-          push: true
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
