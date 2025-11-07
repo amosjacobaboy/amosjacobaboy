@@ -1,0 +1,24 @@
+name: Update GitHub Profile README
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pull GitHub Stats
+        uses: anuraghazra/github-readme-stats@master
+
+      - name: Commit & Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Auto-update GitHub stats"
+          git push
