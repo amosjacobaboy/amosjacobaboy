@@ -2,29 +2,29 @@ name: Update GitHub Profile README
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # Runs daily at 6:00 AM UTC
-  workflow_dispatch:      # Allows manual trigger
+    - cron: "0 6 * * *"   # every day at 6 AM UTC
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository with PAT
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
-      - name: Make a minor change (to trigger commit)
+      - name: Make a small update to trigger commit
         run: |
           echo "Auto update on $(date -u)" > update-log.txt
 
-      - name: Commit and push changes
+      - name: Commit and push using PAT
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Auto-update: refresh profile README" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git push https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }} HEAD:main
