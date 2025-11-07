@@ -1,22 +1,26 @@
-## 🧑‍💻 Amos Jacob Aboy
+### 🧑‍💻 Amos Jacob Aboy
+---
 
 **Data Analyst | MSc. IT | Excel |Python 🐍 | SQL 💾 | Streamlit & Data Visualization 📊**
 
 ![Profile Views](https://komarev.com/ghpvc/?username=amosjacobaboy&style=flat-square&color=blue)
 
-👋 Hi, I'm **Amos Jacob Aboy**,  a Data Analyst passionate about transforming raw data into meaningful insights that drive smart decisions.
-With a strong background in **Information Technology** and hands-on experience with modern analytical tools,
-I specialize in **data cleaning, analysis, visualization, and reporting**, particularly within the **education, public sector**, and **development domains**.
+👋 Hi, I'm **Amos Jacob Aboy**, a Data Analyst passionate about transforming raw data into meaningful insights that drive smart decisions. With a strong background in **Information Technology** and hands-on experience with modern analytical tools, I specialize in **data cleaning, analysis, visualization, and reporting**, particularly within the **education, public sector, and development domains**.
+
+
 ---
 
 ### 🌟 About Me
 
+
 🎓 **Master’s Degree in Information Technology**  
 💡 **Technical Skills:** Python 🐍 | SQL 💾 | Streamlit | Excel | MySQL | OpenData Kit (ODK), KoboToolBox and XLSForm 📱  
-📊 **Focus:** Data cleaning, visualization, analytics, and dashboarding  
+📊 **Core Focus:** Data cleaning, visualization, analytics, and dashboard development  
 🌍 **Mission:** Using data to improve education, business, and governance  
 🔍 **Currently Learning:** Machine Learning & Cloud Deployment ☁️
+
 ---
+
 
 ### 🧰 Tech Stack
 
