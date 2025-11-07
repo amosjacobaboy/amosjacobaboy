@@ -1,6 +1,6 @@
 # 🧑‍💻 Amos Jacob Aboy
 
-**Data Analyst | M.Sc. IT | Python 🐍 | SQL 💾 | Streamlit & Data Visualization 📊**
+**Data Analyst | MSc. IT | Python 🐍 | SQL 💾 | Streamlit & Data Visualization 📊**
 
 👋 Hi, I'm Amos Jacob Aboy, a passionate Data Analyst who turns complex data into actionable insights.  
 I build interactive dashboards, solve real-world problems, and help organizations make data-driven decisions.
