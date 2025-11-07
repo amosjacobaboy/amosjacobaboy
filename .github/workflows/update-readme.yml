@@ -2,23 +2,25 @@ name: Update GitHub Profile README
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight UTC
-  workflow_dispatch: # Allow manual trigger
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+  workflow_dispatch: # Allow manual run
 
 jobs:
-  build:
+  update-readme:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Pull GitHub Stats
-        uses: anuraghazra/github-readme-stats@master
-
-      - name: Commit & Push changes
+      - name: Update timestamp in README
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Auto-update GitHub stats"
-          git push
+          echo "Last updated on $(date -u)" > last-updated.txt
+
+      - name: Commit and Push Changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: "GitHub Action"
+          author_email: "actions@github.com"
+          message: "Auto-update: refresh profile README"
+          add: "."
