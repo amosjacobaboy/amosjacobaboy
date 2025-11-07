@@ -2,31 +2,33 @@ name: Update GitHub Profile README
 
 on:
   schedule:
-    # Runs every 6 hours — you can adjust as you wish
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *"  # runs once daily
+  workflow_dispatch:     # allows manual runs
+
+permissions:
+  contents: write        # allow writing to the repo
+  actions: read
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # ensures repo write access
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Generate README Stats
-        uses: anuraghazra/github-readme-stats@latest
-        with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Generate GitHub Stats
+        run: |
+          echo "![Jacob's GitHub stats](https://github-readme-stats.vercel.app/api?username=amosjacobaboy&show_icons=true&theme=radical)" > README.md
+          echo "" >> README.md
+          echo "![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=amosjacobaboy&layout=compact&theme=radical)" >> README.md
+          echo "" >> README.md
+          echo "🚀 Auto-updated daily by GitHub Actions" >> README.md
 
       - name: Commit and Push Changes
         uses: EndBug/add-and-commit@v9
         with:
-          add: '.'
           message: "Auto-update: refresh profile README"
+          add: "README.md"
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
